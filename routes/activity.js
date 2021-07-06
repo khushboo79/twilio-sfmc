@@ -113,7 +113,7 @@ exports.execute = function (req, res) {
     client.messages 
           .create({ 
              body: body,
-             from: '+12523169149',
+             from: '+18782066477',
              to: to
            }) 
           .then( (message) => {
@@ -124,17 +124,16 @@ exports.execute = function (req, res) {
                     SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
                       {
                         keys: {
-                          Id: message.uri+to,
+                          to: message.to,
                         },
                         values: {
                            
                           accountSid: message.accountSid,
                           body: message.body,
                           from: message.from,
-                          to: message.to,
                           uri: message.uri,
                         },
-                      },
+                      }
                     ]);
                }
                 catch(err)   
