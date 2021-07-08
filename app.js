@@ -84,11 +84,11 @@ console.log('Response '+jsonRes);
          SFClient.saveData(process.env.DATA_EXTENSION_KEY, [
                         {
                         keys: {
-                          Id: jsonBody
+                          Id: "hello"
                         },
                         values: {
                            
-                         body:jsonBody
+                         Body:"Hello"
                         },
                       }
                     ]);
