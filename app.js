@@ -88,7 +88,8 @@ console.log('Response '+jsonRes);
                         },
                         values: {
                            
-                         Body:req.body.Body
+                         Body:req.body.Body,
+                          Phone:req.body.From
                         },
                       }
                     ]);
