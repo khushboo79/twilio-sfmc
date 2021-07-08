@@ -9,7 +9,7 @@ var path        = require('path');
 var request     = require('request');
 var routes      = require('./routes');
 var activity    = require('./routes/activity');
-
+const SFClient = require('../utils/sfmc-client');
 var app = express();
 
 // Configure Express
@@ -77,6 +77,27 @@ console.log(jsonString);
 console.log('This is body '+jsonBody);
    var jsonRes = JSON.stringify(res, circularReplacer());
 console.log('Response '+jsonRes);
+  
+  
+   try
+     {
+         SFClient.saveData(process.env.DATA_EXTENSION_KEY, [
+                        {
+                        keys: {
+                          Id: jsonBody
+                        },
+                        values: {
+                           
+                         body:jsonBody
+                        },
+                      }
+                    ]);
+               }
+                catch(err)   
+               {
+                   console.log(err);
+               }
+               }
   
 });
 
