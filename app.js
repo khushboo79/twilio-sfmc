@@ -40,7 +40,8 @@ app.post('/journeybuilder/execute/', activity.execute );
 
 
 app.post('/message',function(req,res){
-  console.log(req);
+  console.log('Hello');
+  console.log('This is '+req);
   console.log("Reply Body:"+req.body);
 });
 
