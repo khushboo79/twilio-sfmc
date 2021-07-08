@@ -75,7 +75,8 @@ var jsonString = JSON.stringify(req, circularReplacer());
 console.log(jsonString);
   var jsonBody = JSON.stringify(req.body, circularReplacer());
 console.log('This is body '+jsonBody);
-console.log('Response '+res);
+   var jsonRes = JSON.stringify(res, circularReplacer());
+console.log('Response '+jsonRes);
   
 });
 
