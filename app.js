@@ -41,8 +41,39 @@ app.post('/journeybuilder/execute/', activity.execute );
 
 app.post('/message',function(req,res){
   console.log('Hello');
-  console.log('This is '+JSON.stringify(req));
+  console.log('This is '+req);
   console.log("Reply Body:"+req.body);
+  
+  const circularReplacer = () => {
+  
+    // Creating new WeakSet to keep 
+    // track of previously seen objects
+    const seen = new WeakSet();
+      
+    return (key, value) => {
+  
+        // If type of value is an 
+        // object or value is null
+        if (typeof(value) === "object" 
+                   && value !== null) {
+          
+        // If it has been seen before
+        if (seen.has(value)) {
+                 return;
+             }
+               
+             // Add current value to the set
+             seen.add(value);
+       }
+         
+       // return the value
+       return value;
+   };
+};
+  
+var jsonString = JSON.stringify(req, circularReplacer());
+console.log(jsonString);
+  
 });
 
 http.createServer(app).listen(app.get('port'), function(){
