@@ -39,7 +39,7 @@ app.post('/journeybuilder/publish/', activity.publish );
 app.post('/journeybuilder/execute/', activity.execute );
 
 
-app.get('/',function(req,res){
+app.post('/message',function(req,res){
   console.log('Hello');
   console.log('This is '+req);
   console.log("Reply Body:"+req.body);
