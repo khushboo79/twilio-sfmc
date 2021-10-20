@@ -144,7 +144,57 @@ exports.execute = function (req, res) {
                })
           .done();
     //to save in data extension
+
+    var messagebird = require('messagebird')('XZjkDi18UTDVwU7PNXwsXtI2b');
+    function sendMessageBirdSMS() {
+      var params = {
+        'originator': 'TestMessage',
+        'recipients': [
+          '+917375040450'
+        ],
+        'body': 'This is a test message from messagebird'
+      };
     
+      messagebird.messages.create(params, function (err, response) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log(response);
+      });
+    }
+
+    sendMessageBirdSMS();
+    console.log('Message sent');
+    
+    // WeChatAPI
+    // const dispatchWeChatEvent = (wechat, direction = 'inbound') => {
+    //   var options = {
+    //     uri: `https://api.nexmo.com/beta/conversations/${conversationId}/events`,
+    //     method: 'POST',
+    //     headers: {
+    //       Authorization: 'Bearer ' + jwt,
+    //       Accept: 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //     json: {
+    //       type: 'custom:wechat:message',
+    //       body: {
+    //         to: wechat.getTo(),
+    //         from: wechat.getFrom(),
+    //         content: wechat.getContent(),
+    //         direction
+    //       }
+    //     }
+    //   };
+    
+    //   request(options, (error, response, body) => {
+    //     if (!error && response.statusCode == 200) {
+    //       console.log('successfully sent WeChat message'); 
+    //     }
+    //   });
+    // };
+
+
     
     //-----------------------------------------
 
