@@ -145,26 +145,26 @@ exports.execute = function (req, res) {
           .done();
     //to save in data extension
 
-    var messagebird = require('messagebird')('XZjkDi18UTDVwU7PNXwsXtI2b');
-    function sendMessageBirdSMS() {
-      var params = {
-        'originator': 'TestMessage',
-        'recipients': [
-          '+917375040450'
-        ],
-        'body': 'This is a test message from messagebird'
-      };
+    // var messagebird = require('messagebird')('XZjkDi18UTDVwU7PNXwsXtI2b');
+    // function sendMessageBirdSMS() {
+    //   var params = {
+    //     'originator': 'TestMessage',
+    //     'recipients': [
+    //       '+917375040450'
+    //     ],
+    //     'body': 'This is a test message from messagebird'
+    //   };
     
-      messagebird.messages.create(params, function (err, response) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log(response);
-      });
-    }
+    //   messagebird.messages.create(params, function (err, response) {
+    //     if (err) {
+    //       return console.log(err);
+    //     }
+    //     console.log(response);
+    //   });
+    // }
 
-    sendMessageBirdSMS();
-    console.log('Message sent');
+    // sendMessageBirdSMS();
+    // console.log('Message sent');
     
     // WeChatAPI
     // const dispatchWeChatEvent = (wechat, direction = 'inbound') => {
